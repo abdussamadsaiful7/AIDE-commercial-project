@@ -17,7 +17,7 @@ const Navbar = () => {
                             <Link><a className=" flex items-center mr-2"><FaUserAlt />Admin</a></Link>
                         </ul>
                     </div>
-                    <a className="normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
+                    <a href='/' className="normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
                 </div>
 
 

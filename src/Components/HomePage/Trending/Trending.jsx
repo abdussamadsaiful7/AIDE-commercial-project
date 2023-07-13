@@ -28,7 +28,7 @@ const Trending = () => {
     }
 
     useEffect(() => {
-        fetch("product.json")
+        fetch("http://localhost:5050/products")
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
