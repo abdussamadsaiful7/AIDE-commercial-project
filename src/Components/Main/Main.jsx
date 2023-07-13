@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../HomePage/Home/Home';
 import Navber from '../HomePage/Navbar/Navber';
 import Footer from '../HomePage/Footer/Footer';
+import Trending from '../HomePage/Trending/Trending';
 
 
 const Main = () => {
@@ -9,6 +10,7 @@ const Main = () => {
         <div>
             <Navber/>
             <Home/>
+            <Trending/>
             <Footer/>
         </div>
     );

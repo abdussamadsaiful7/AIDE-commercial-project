@@ -4,7 +4,7 @@ import { FaAlignJustify, FaSearch, FaShoppingCart, FaUserAlt, } from "react-icon
 
 const Navber = () => {
     return (
-        <div className='pt-2'>
+        <div className='pt-2 px-10'>
             <div className="navbar bg-base-100">
                 <div className="navbar-start w-1/2">
                     <div className="dropdown">

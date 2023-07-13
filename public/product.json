@@ -1,0 +1,63 @@
+[
+    {
+      "name": "Vegetable oil",
+      "quantity": 5,
+      "price": 490,
+      "imageURL": "https://i.ibb.co/YZM7HKP/pic1.jpg"
+    },
+    {
+      "name": "Coconut Oil",
+      "quantity": 5,
+      "price": 720,
+      "imageURL": "https://i.ibb.co/jv3VcC0/pic2.jpg"
+    },
+    {
+      "name": "Agush Rice",
+      "quantity": 5,
+      "price": 1020,
+      "imageURL": "https://i.ibb.co/qWmCbhW/pic3.jpg"
+    },
+    {
+      "name": "Rice Kiskish",
+      "quantity": 5,
+      "price": 710,
+      "imageURL": "https://i.ibb.co/Tr8PgVx/pic4.jpg"
+    },
+    {
+      "name": "Washing powder",
+      "quantity": 10,
+      "price": 630,
+      "imageURL": "https://i.ibb.co/V2D8bhC/pic5.jpg"
+    },
+    {
+      "name": "Laundry Powder ",
+      "quantity": 5,
+      "price": 320,
+      "imageURL": "https://i.ibb.co/C2cJhMd/pic6.jpg"
+    },
+    {
+      "name": "Dano Powder",
+      "quantity": 5,
+      "price": 740,
+      "imageURL": "https://i.ibb.co/44TMQBy/pic7.png"
+    },
+    {
+      "name": "Horlicks Powder",
+      "quantity": 3,
+      "price": 700,
+      "imageURL": "https://i.ibb.co/PW6wSGh/pic8.jpg"
+    },
+    {
+      "name": "Thai pumpush",
+      "quantity": 1,
+      "price": 450,
+      "imageURL": "https://i.ibb.co/qFQ3DRp/pic9.jpg"
+    },
+    {
+      "name": "Bajeko Masala",
+      "quantity": 3,
+      "price": 940,
+      "imageURL": "https://i.ibb.co/Sdsr2cS/pic10.jpg"
+    }
+  ]
+  
