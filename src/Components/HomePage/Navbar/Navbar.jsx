@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaAlignJustify, FaSearch, FaShoppingCart, FaUserAlt, } from "react-icons/fa";
 
-const Navber = () => {
+const Navbar = () => {
     return (
         <div className='pt-2 px-10'>
             <div className="navbar bg-base-100">
@@ -13,7 +13,7 @@ const Navber = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <Link><a className=" flex items-center mr-2"><FaShoppingCart />Cart</a></Link>
-                            <Link><a className=" flex items-center mr-2"><FaUserAlt />sign Up/Sign In</a></Link>
+                            <Link to='/login'><a className=" flex items-center mr-2"><FaUserAlt />Sign In</a></Link>
                             <Link><a className=" flex items-center mr-2"><FaUserAlt />Admin</a></Link>
                         </ul>
                     </div>
@@ -30,12 +30,16 @@ const Navber = () => {
 
                 <div className="navbar-end space-x-6">
                     <Link><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaShoppingCart /></span>Cart</a></Link>
-                    <Link><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>sign Up/Sign In</a></Link>
-                    <Link><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Admin</a></Link>
+
+
+                    <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Sign In</button></Link>
+
+
+                    <Link to='/admin'><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Admin</a></Link>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Navber;
+export default Navbar;

@@ -4,8 +4,11 @@ import {
   } from "react-router-dom";
 import Main from "../Components/Main/Main";
 import Home from "../Components/HomePage/Home/Home";
-import Navber from "../Components/HomePage/Navbar/Navber";
 import Footer from "../Components/HomePage/Footer/Footer";
+import SignUp from "../Components/SignUp/SignUp";
+import Navbar from "../Components/HomePage/Navbar/Navbar";
+import Admin from "../Components/Admin/Admin";
+import Login from "../Components/LogIn/Login";
 
   const router = createBrowserRouter([
     {
@@ -15,12 +18,24 @@ import Footer from "../Components/HomePage/Footer/Footer";
         {
             path: '/',
             element: <Home/>
+        },
+        {
+            path: '/login',
+            element: <Login/>
+        },
+        {
+            path: '/signUp',
+            element: <SignUp/>
+        },
+        {
+            path: "/admin",
+            element: <Admin/>
         }
       ]
     },
     {
         path: '/navbar',
-        element: <Navber/>
+        element: <Navbar/>
       },
       {
         path: '/footer',
