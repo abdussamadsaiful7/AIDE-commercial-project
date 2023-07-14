@@ -34,7 +34,8 @@ import Order from "../Components/Order/Order";
         },
         {
           path: '/order',
-          element: <Order/>
+          element: <Order/>,
+         // loader: ()=>fetch('http://localhost:5050/order')
         }
       ]
     },
