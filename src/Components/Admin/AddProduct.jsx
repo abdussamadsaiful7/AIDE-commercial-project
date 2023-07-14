@@ -29,7 +29,7 @@ const AddProduct = () => {
                                 <span className="label-text ml-4">Product Name</span>
                             </label>
                             <label className="input">
-                                <input type="text" placeholder="Toy Name" name="productName" className="input input-bordered w-96 rounded-md" />
+                                <input type="text" placeholder="product Name" name="productName" className="input input-bordered w-96 rounded-md" />
                             </label>
                         </div>
                         <div>
