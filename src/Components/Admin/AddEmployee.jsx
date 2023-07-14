@@ -1,10 +1,27 @@
 import React from 'react';
 
 const AddEmployee = () => {
+
+    const handleAddEmployee = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const mobile = form.mobile.value;
+        const email = form.email.value;
+        const imageURL = form.imageURL.value;
+        const role = form.role.value;
+        const plan = form.plan.value;
+        const status = form.status.value;
+        const newEmployee = { name, mobile, email, role, plan, status, imageURL };
+
+        console.log(newEmployee);
+    }
+
     return (
         <div>
             <div>
-                <form className="form-control px-20 py-20 space-y-5 ">
+                <form onSubmit={handleAddEmployee} className="form-control px-20 py-20 space-y-5 ">
                     <h1 className='text-center font-extrabold text-3xl'>Add  Employee</h1>
 
                     {/* name, price section */}
@@ -14,7 +31,7 @@ const AddEmployee = () => {
                                 <span className="label-text ml-4">Name</span>
                             </label>
                             <label className="input">
-                                <input type="text" placeholder="Name" name="productName" className="input input-bordered w-96 rounded-md" />
+                                <input type="text" placeholder="Name" name="name" className="input input-bordered w-96 rounded-md" />
                             </label>
                         </div>
                         <div>
@@ -22,7 +39,7 @@ const AddEmployee = () => {
                                 <span className="label-text ml-4">Mobile Number</span>
                             </label>
                             <label className="input">
-                                <input type="number" placeholder="Mobile Number" name="mobile" className="input 
+                                <input type="text" placeholder="Mobile Number" name="mobile" className="input 
                             input-bordered w-96 rounded-md" />
                             </label>
                         </div>
@@ -80,7 +97,7 @@ const AddEmployee = () => {
                             <option disabled selected>Status</option>
                             <option>Pending</option>
                             <option>Active</option>
-                            <option>Active</option>
+                            <option>Inactive</option>
                         </select>
                     </div>
 

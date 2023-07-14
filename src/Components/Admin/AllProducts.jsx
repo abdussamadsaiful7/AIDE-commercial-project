@@ -6,7 +6,12 @@ const AllProducts = () => {
     const loadProducts = useLoaderData();
     const [products, setProducts] = useState(loadProducts);
     const [search, setSearch] = useState('');
-    console.log(products)
+    console.log(products);
+
+
+    
+
+
     return (
         <div className='mx-20'>
             <div className="overflow-x-auto md:mx-20">
