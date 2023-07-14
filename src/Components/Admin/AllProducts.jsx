@@ -9,7 +9,7 @@ const AllProducts = () => {
     console.log(products);
 
 
-    
+
 
 
     return (
@@ -24,7 +24,7 @@ const AllProducts = () => {
                         <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>PDF</button>
                         <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>SHOW/HIDE COLUM</button>
                     </div>
-                   <Link to='/dashBoard/addProduct'> <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>+ ADD NEW PRODUCT</button></Link>
+                    <Link to='/dashBoard/addProduct'> <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>+ ADD NEW PRODUCT</button></Link>
                 </div>
                 <table className="table w-full my-6 border">
                     <thead>
@@ -55,32 +55,9 @@ const AllProducts = () => {
                                     <td>{product.quantity} liter/kg</td>
                                     <td>${product.price}</td>
 
-                                    {/* <td>
-                                        {
-                                            user && <Link onClick={notify} to={`/allToys/${toy._id}`}>
-                                                <img className='md:w-6 md:h-6 w-1 h-1' src={details} alt="" />
-                                            </Link>
-                                        }
-                                        {
-                                            !user && <Link onClick={notify} to={`/allToys/${toy._id}`}>
-                                                <img className='md:w-6 md:h-6 w-1 h-1' src={details} alt="" />
-                                            </Link>
-                                        }
-                                    </td>
-                                    <td className='md:hidden'>
-                                        {
-                                            user && <Link onClick={notify} to={`/allToys/${toy._id}`}>
-                                                <button>Details</button>
-                                            </Link>
-                                        }
-                                        {
-                                            !user && <Link onClick={notify} to={`/allToys/${toy._id}`}>
-                                                <button>Details</button>
-                                            </Link>
-                                        }
-                                    </td> */}
+
                                 </tr>
-                                <tr />
+                                
                             </tbody>
 
                         )

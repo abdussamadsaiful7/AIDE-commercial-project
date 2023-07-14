@@ -19,19 +19,20 @@ const Trending = () => {
 
     const seeAllHandler = () => {
         setSeeAll(true);
-        pauseOnClick(false)
+       
     }
 
     const seeLessHandler = () => {
         setSeeAll(false);
-        pauseOnClick(true)
+       
     }
 
     useEffect(() => {
-        fetch("http://localhost:5050/products")
+        fetch('http://localhost:5050/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
+
 
 
 
@@ -63,7 +64,7 @@ const Trending = () => {
 
                 <div className='grid grid-cols-4 gap-4 pt-2'>
                     {
-                        products.slice(0, seeAll ? 10 : 4).map(product => <ProductCard
+                        products.slice(0, seeAll ? 10000000 : 4).map(product => <ProductCard
                             product={product} key={product.name} />)
                     }
                 </div>

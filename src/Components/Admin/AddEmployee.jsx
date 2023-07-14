@@ -1,4 +1,5 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AddEmployee = () => {
 
@@ -16,6 +17,21 @@ const AddEmployee = () => {
         const newEmployee = { name, mobile, email, role, plan, status, imageURL };
 
         console.log(newEmployee);
+
+        fetch('http://localhost:5050/allEmployee', {
+            method: 'POST',
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(newEmployee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    toast.success('Add a Product successfully!')
+                }
+                form.reset();
+            })
+
     }
 
     return (

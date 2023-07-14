@@ -44,6 +44,7 @@ import AddProduct from "../Components/Admin/AddProduct";
         {
           path: 'allEmployee',
           element: <AllEmployee/>,
+          loader: ()=>fetch('http://localhost:5050/allEmployee'),
 
         },
         {

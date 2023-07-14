@@ -1,74 +1,102 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProviders/AuthProviders';
+import toast from 'react-hot-toast';
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
 
-    const handleAddToy = (event) => {
+    // const notify = () => toast('Add a Product successfully');
+
+    const handleAddProduct = (event) => {
         event.preventDefault();
 
         const form = event.target;
-        const productName = form.productName.value;
+        const name = form.name.value;
         const price = form.price.value;
         const quantity = form.quantity.value;
+        const weight = form.weight.value;
         const imageURL = form.imageURL.value;
-        const newProduct = { productName, price, quantity, imageURL};
+        const newProduct = { name, price, quantity, weight, imageURL };
 
         console.log(newProduct);
+
+        fetch('http://localhost:5050/products', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    toast.success('Add a Product successfully!')
+                }
+                form.reset();
+            })
     }
 
-        return (
-            <div>
-                <form onSubmit={handleAddToy} className="form-control px-20 py-20 ">
-                    <h1 className='text-center font-extrabold text-3xl'>Add  Product</h1>
+    return (
+        <div>
+            <form onSubmit={handleAddProduct} className="form-control px-20 py-20 ">
+                <h1 className='text-center font-extrabold text-3xl'>Add  Product</h1>
 
-                    {/* name, price section */}
-                    <div className='lg:flex items-center justify-center lg:space-x-8'>
-                        <div>
-                            <label className="label">
-                                <span className="label-text ml-4">Product Name</span>
-                            </label>
-                            <label className="input">
-                                <input type="text" placeholder="product Name" name="productName" className="input input-bordered w-96 rounded-md" />
-                            </label>
-                        </div>
-                        <div>
-                            <label className="label">
-                                <span className="label-text ml-4">Price</span>
-                            </label>
-                            <label className="input">
-                                <input type="number" placeholder="$Price" name="price" className="input 
+                {/* name, price section */}
+                <div className='lg:flex items-center justify-center lg:space-x-8'>
+                    <div>
+                        <label className="label">
+                            <span className="label-text ml-4">Product Name</span>
+                        </label>
+                        <label className="input">
+                            <input type="text" placeholder="product Name" name="name" className="input input-bordered w-96 rounded-md" />
+                        </label>
+                    </div>
+                    <div>
+                        <label className="label">
+                            <span className="label-text ml-4">Price</span>
+                        </label>
+                        <label className="input">
+                            <input type="number" placeholder="$Price" name="price" className="input 
                             input-bordered w-96 rounded-md" />
-                            </label>
-                        </div>
+                        </label>
                     </div>
+                </div>
 
-                    {/* seller name, seller email section */}
-                    <div className='lg:flex items-center justify-center lg:space-x-8'>
-                        <div>
-                            <label className="label">
-                                <span className="label-text ml-4">Quantity</span>
-                            </label>
-                            <label className="input">
-                                <input type="number" placeholder="quantity" name="quantity" className="input input-bordered w-96 rounded-md" />
-                            </label>
-                        </div>
-                        <div>
-                            <label className="label">
-                                <span className="label-text ml-4">ImageURL</span>
-                            </label>
-                            <label className="input">
-                                <input type="text" placeholder="URL" name="imageURL" className="input input-bordered w-96" />
-                            </label>
-                        </div>
+                {/* seller name, seller email section */}
+                <div className='lg:flex items-center justify-center lg:space-x-8'>
+                    <div>
+                        <label className="label">
+                            <span className="label-text ml-4">Quantity</span>
+                        </label>
+                        <label className="input">
+                            <input type="number" placeholder="quantity" name="quantity" className="input input-bordered w-96 rounded-md" />
+                        </label>
                     </div>
-
-                    <div className='text-center my-4'>
-                        <input className="btn btn-wide" type="submit" value="Add Product" />
+                    <div>
+                        <label className="label">
+                            <span className="label-text ml-4">ImageURL</span>
+                        </label>
+                        <label className="input">
+                            <input type="text" placeholder="URL" name="imageURL" className="input input-bordered w-96" />
+                        </label>
                     </div>
-                </form>
-            </div>
-        );
-    };
+                </div>
+                <div className='ml-24 mr-[110px] mx-auto'>
+                    <label className="label">
+                        <span className="label-text ml-4">Weight</span>
+                    </label>
+                    <label className="input">
+                        <input type="number" placeholder="weight" name="weight" className="input input-bordered w-full" />
+                    </label>
+                </div>
 
-    export default AddProduct;
+                <div className='text-center my-4'>
+                    <input className="btn btn-wide" type="submit" value="Add Product" />
+                </div>
+            </form>
+        </div>
+    );
+};
+
+export default AddProduct;

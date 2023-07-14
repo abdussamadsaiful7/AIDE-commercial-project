@@ -4,6 +4,7 @@ import Footer from '../HomePage/Footer/Footer';
 import Trending from '../HomePage/Trending/Trending';
 import Navbar from '../HomePage/Navbar/Navbar';
 import { Outlet, useLocation } from 'react-router-dom';
+import  { Toaster } from 'react-hot-toast';
 
 
 const Main = () => {
@@ -17,6 +18,7 @@ const Main = () => {
             {noHeaderFooter || <Navbar></Navbar>}
             <Outlet></Outlet>
             {noHeaderFooter || <Footer></Footer>}
+            <Toaster />
         </div>
     );
 };
