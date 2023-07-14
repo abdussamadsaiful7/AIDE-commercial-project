@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowCircleLeft, FaUserFriends, FaAddressBook, FaDochub, FaSearch, FaUserPlus, FaChevronDown, FaListUl } from "react-icons/fa";
+import { FaArrowCircleLeft, FaUserFriends, FaAddressBook, FaDochub, FaSearch, FaUserPlus, FaLayerGroup ,FaListUl, FaRegListAlt } from "react-icons/fa";
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -32,10 +32,10 @@ const Dashboard = () => {
                             </div>
                         </div>
                         {/* Sidebar content here */}
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allEmployee'>All Employee</Link></li>
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/AddEmployee'>Add Employee</Link></li>
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allProducts'>All Products</Link></li>
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/addProduct'>Add Product</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allEmployee'> <FaUserFriends className='text-2xl'/>All Employee</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/AddEmployee'> <FaUserPlus className='text-2xl'/> Add Employee</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allProducts'> <FaLayerGroup className='text-2xl'/>  All Products</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/addProduct'> <FaRegListAlt className='text-2xl'/> Add Product</Link></li>
 
                     </ul>
                 </div>

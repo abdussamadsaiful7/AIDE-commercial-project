@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+
 
 const AllProducts = () => {
     const loadProducts = useLoaderData();
@@ -13,9 +14,24 @@ const AllProducts = () => {
                 <div className='text-center'>
                     <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search..." className=" input input-bordered input-primary w-full max-w-xs" />
                 </div>
-                <table className="table w-full my-10 border">
+                <div className='flex items-center justify-between mt-5 px-3'>
+                    <div className='space-x-4'>
+                        <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>PDF</button>
+                        <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>SHOW/HIDE COLUM</button>
+                    </div>
+                   <Link to='/dashBoard/addProduct'> <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>+ ADD NEW PRODUCT</button></Link>
+                </div>
+                <table className="table w-full my-6 border">
+                    <thead>
+                        <tr>
+                            <th>IMAGE</th>
+                            <th>NAME</th>
+                            <th>WIGHT</th>
+                            <th>PRICE</th>
+                        </tr>
+                    </thead>
                     {
-                       products.filter((item) => {
+                        products.filter((item) => {
                             return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search)
                         }).map(product =>
 
