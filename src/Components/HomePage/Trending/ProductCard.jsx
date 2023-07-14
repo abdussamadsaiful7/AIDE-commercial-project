@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -7,6 +7,7 @@ const ProductCard = ({ product }) => {
     //console.log(product)
     const { _id, name, price, quantity, imageURL, weight } = product;
     const { user } = useContext(AuthContext);
+    const [cartQuantity, setCartQuantity] = useState(1);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,7 +15,19 @@ const ProductCard = ({ product }) => {
     const handleAddToCart = (it) => {
         console.log(it);
         if (user && user.email) {
-            const cartItem = { itemId: _id, name, imageURL, price, quantity, weight, email: user.email }
+            const totalPrice = price * cartQuantity; // Calculate totalPrice
+            const cartItem = {
+                itemId: _id,
+                name,
+                imageURL,
+                price,
+                quantity: cartQuantity, // Use cartQuantity instead of quantity
+                weight,
+                email: user.email,
+                totalPrice, // Include totalPrice in the cartItem object
+            };
+            // if (user && user.email) {
+            //     const cartItem = { itemId: _id, name, imageURL, price, quantity, weight, email: user.email }
             fetch('http://localhost:5050/order', {
                 method: 'POST',
                 headers: {
@@ -54,6 +67,20 @@ const ProductCard = ({ product }) => {
         }
     }
 
+    const handleIncreaseQuantity = () => {
+        setCartQuantity(prevQuantity => prevQuantity + 1);
+        // Implement the logic to increase the quantity in the cart
+    };
+
+    const handleDecreaseQuantity = () => {
+        if (cartQuantity > 0) {
+            setCartQuantity(prevQuantity => prevQuantity - 1);
+            // Implement the logic to decrease the quantity in the cart
+        }
+    };
+
+    const totalPrice = price * cartQuantity;
+
 
     return (
         <div>
@@ -63,8 +90,22 @@ const ProductCard = ({ product }) => {
                 <p>Weight: {weight} liter/kg</p>
                 <p>Quantity: {quantity} </p>
                 <p className='text-blue-500'>Price: ${price}</p>
+                {/* <button onClick={() => handleAddToCart(product)} className='hover:bg-blue-500 hover:text-white rounded border border-1 border-blue-500 text-blue-500 w-full'>
+                    Add to Cart</button> */}
+
+                <div className='flex justify-between items-center mt-2'>
+                    <button onClick={handleDecreaseQuantity} className='hover:bg-blue-500 hover:text-white rounded text-2xl px-2 text-blue-500'>
+                        -
+                    </button>
+                    <span className='text-blue-500'>{cartQuantity} x ${price} = ${totalPrice}</span>
+                    <button onClick={handleIncreaseQuantity} className='hover:bg-blue-500 hover:text-white rounded text-2xl px-2 text-blue-500'>
+                        +
+                    </button>
+                </div>
                 <button onClick={() => handleAddToCart(product)} className='hover:bg-blue-500 hover:text-white rounded border border-1 border-blue-500 text-blue-500 w-full'>
                     Add to Cart</button>
+                {/* )
+          //      } */}
             </div>
         </div>
     );

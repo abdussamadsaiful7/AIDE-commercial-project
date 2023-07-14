@@ -36,6 +36,17 @@ const Order = () => {
         <div className='md:px-10'>
             <h1 className='text-center font-serif text-3xl font-semibold pt-8'>ALL ORDERS</h1>
             <table className="table w-full my-6 border">
+                <thead>
+                    <tr>
+                        <th>IMAGE</th>
+                        <th>NAME</th>
+                        <th>WEIGHT</th>
+                        <th>QTY</th>
+                        <th>PRICE</th>
+                        <th>TOTAL</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
                 {
                     myOrder.map(order =>
 
@@ -53,7 +64,8 @@ const Order = () => {
                                 <td>{order.name}</td>
                                 <td>{order.weight}</td>
                                 <td>{order.quantity}</td>
-                                <td>{order.price}</td>
+                                <td> ${order.price}</td>
+                                <td> ${order.totalPrice}</td>
                                 <td>
 
                                     <label>

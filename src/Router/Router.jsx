@@ -14,6 +14,7 @@ import AllProducts from "../Components/Admin/AllProducts";
 import Dashboard from "../Components/Dashdoard/Dashboard";
 import AddProduct from "../Components/Admin/AddProduct";
 import Order from "../Components/Order/Order";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
   const router = createBrowserRouter([
     {
@@ -35,13 +36,12 @@ import Order from "../Components/Order/Order";
         {
           path: '/order',
           element: <Order/>,
-         // loader: ()=>fetch('http://localhost:5050/order')
         }
       ]
     },
     {
       path: 'dashBoard',
-      element: <Dashboard/>,
+      element:<PrivateRoute> <Dashboard/></PrivateRoute>,
       children:[
         {
           path: "addEmployee",

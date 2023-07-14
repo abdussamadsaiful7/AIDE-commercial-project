@@ -12,7 +12,7 @@ const Navbar = () => {
         fetch(`http://localhost:5050/order?email=${user?.email}&${show?.price}`)
             .then(res => res.json())
             .then(data => setShow(data))
-    }, [])
+    }, [show])
 
     const handleLogout = () => {
         logOut()
@@ -61,7 +61,8 @@ const Navbar = () => {
                     {
                         user?
                         <>
-                            <Link to='/login'><button  onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaPowerOff className='text-2xl' /></span>Sign Out</button></Link>
+                            <Link><button  onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaPowerOff className='text-2xl' /></span>
+                            Sign Out</button></Link>
                         </>
                         :
                     <>

@@ -31,6 +31,7 @@ const AllProducts = () => {
                             <th>IMAGE</th>
                             <th>NAME</th>
                             <th>WIGHT</th>
+                            <th>QTY</th>
                             <th>PRICE</th>
                         </tr>
                     </thead>
