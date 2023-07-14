@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { FaArrowCircleLeft, FaUserFriends, FaAddressBook, FaDochub, FaSearch, FaUserPlus, FaLayerGroup ,FaListUl, FaRegListAlt, FaHome } from "react-icons/fa";
+import { FaArrowCircleLeft, FaUserFriends, FaAddressBook, FaDochub, FaSearch, FaUserPlus, FaLayerGroup, FaListUl, FaRegListAlt, FaHome } from "react-icons/fa";
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import AllEmployee from '../Admin/AllEmployee';
-import Admin from '../Admin/Admin';
+import lottieDashboard from '../../assets/logo/dashBoard.json';
+import Lottie from "lottie-react";
 
 const Dashboard = () => {
-    const [see, setSee]= useState(false);
+    const [see, setSee] = useState(false);
     return (
         <div className='py-8'>
             <div className="drawer">
@@ -18,6 +18,9 @@ const Dashboard = () => {
                             Home</button></Link>
                     </div>
                     <hr />
+                    <div className='text-center flex items-center md:mx-[460px]'>
+                        <Lottie className='w-64 h-64' animationData={lottieDashboard} loop={true} />
+                    </div>
                     {/* Page content here */}
                     <Outlet />
 
@@ -35,11 +38,11 @@ const Dashboard = () => {
                             </div>
                         </div>
                         {/* Sidebar content here */}
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allEmployee'> <FaUserFriends className='text-2xl'/>All Employee</Link></li>
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/AddEmployee'> <FaUserPlus className='text-2xl'/> Add Employee</Link></li>
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allProducts'> <FaLayerGroup className='text-2xl'/>  All Products</Link></li>
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/addProduct'> <FaRegListAlt className='text-2xl'/> Add Product</Link></li>
-                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/'> <FaHome className='text-2xl'/> Home</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allEmployee'> <FaUserFriends className='text-2xl' />All Employee</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/AddEmployee'> <FaUserPlus className='text-2xl' /> Add Employee</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/allProducts'> <FaLayerGroup className='text-2xl' />  All Products</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/dashBoard/addProduct'> <FaRegListAlt className='text-2xl' /> Add Product</Link></li>
+                        <li className='hover:bg-blue-500 rounded mb-2'><Link to='/'> <FaHome className='text-2xl' /> Home</Link></li>
 
                     </ul>
                 </div>

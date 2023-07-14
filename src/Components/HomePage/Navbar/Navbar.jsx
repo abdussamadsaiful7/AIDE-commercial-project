@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaAlignJustify, FaSearch, FaShoppingCart, FaUserAlt, } from "react-icons/fa";
+import { FaAlignJustify, FaPowerOff, FaSearch, FaShoppingCart, FaUserAlt, } from "react-icons/fa";
+import { AuthContext } from '../../AuthProviders/AuthProviders';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const [show, setShow] = useState([]);
+    // console.log("navbar", show.length)
+
+    useEffect(() => {
+        fetch(`http://localhost:5050/order?email=${user?.email}&${show?.price}`)
+            .then(res => res.json())
+            .then(data => setShow(data))
+    }, [])
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+
     return (
         <div className='pt-2 px-10'>
             <div className="navbar bg-base-100">
@@ -11,31 +31,46 @@ const Navbar = () => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <Link to="/order"><a className=" flex items-center mr-2"><FaShoppingCart />Cart</a></Link>
+                        <ul tabIndex={0} className=" z-50 menu menu-sm dropdown-content mt-3 p-2 space-y-2 shadow bg-base-100 rounded-box w-36">
+
+                            <Link to="/order"><a className=" flex items-center "><FaShoppingCart />
+                                <span className='text-red-400'>+{show?.length || 0}</span>Cart</a></Link>
+
+
                             <Link to='/login'><a className=" flex items-center mr-2"><FaUserAlt />Sign In</a></Link>
                             <Link to='/dashBoard'><a className=" flex items-center mr-2"><FaUserAlt />Admin</a></Link>
                         </ul>
                     </div>
-                    <a href='/' className="normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
+                    <a href='/' className=" hidden md:block normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
                 </div>
 
-
-                <div className='flex items-center relative w-3/4'>
+                <div className=' hidden md:flex items-center relative w-3/4'>
                     <i className='absolute left-1 text-blue-500'><FaSearch /></i>
-                    <input type="text" placeholder="Search essential, groceries and more..." className=" text-sm pl-6  input input-bordered border-blue-500 input-group-lg w-full" />
+                    <input type="text" placeholder="Search essential, groceries and more..."
+                        className=" text-sm pl-6  input input-bordered border-blue-500 input-group-lg w-full" />
                     <i className='absolute right-1 text-blue-500'><FaAlignJustify /></i>
                 </div>
 
 
-                <div className="navbar-end space-x-6">
-                    <Link to='/order'><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaShoppingCart /></span>Cart</a></Link>
+                <div className=" relative navbar-end space-x-6">
+                    <Link to='/order'><a className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaShoppingCart className='text-2xl' /></span> <span className="badge 
+                     badge-xs bg-blue-500 absolute 
+                        right-0 left-20 -top-2 rounded-[60%]">+{show?.length || 0}</span> Cart</a></Link>
 
 
-                    <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Sign In</button></Link>
+                    {
+                        user?
+                        <>
+                            <Link to='/login'><button  onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaPowerOff className='text-2xl' /></span>Sign Out</button></Link>
+                        </>
+                        :
+                    <>
+                        <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-2xl' /></span>Sign In</button></Link>
+                    </>
+                    }
 
 
-                    <Link to='/dashBoard'><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Admin</a></Link>
+                    <Link to='/dashBoard'><a className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-2xl' /></span>Admin</a></Link>
                 </div>
             </div>
         </div>

@@ -8,16 +8,16 @@ import  { Toaster } from 'react-hot-toast';
 
 
 const Main = () => {
-    const location = useLocation();
-    const noHeaderFooter =location.pathname.includes('login') || location.pathname.includes('signUp')
+   // const location = useLocation();
+ //   const noHeaderFooter =location.pathname.includes('login') || location.pathname.includes('signUp')
     return (
         <div>
-            {/* <Navbar />
+            <Navbar />
             <Outlet />
-            <Footer /> */}
-            {noHeaderFooter || <Navbar></Navbar>}
+            <Footer />
+            {/* {noHeaderFooter || <Navbar></Navbar>}
             <Outlet></Outlet>
-            {noHeaderFooter || <Footer></Footer>}
+            {noHeaderFooter || <Footer></Footer>} */}
             <Toaster />
         </div>
     );

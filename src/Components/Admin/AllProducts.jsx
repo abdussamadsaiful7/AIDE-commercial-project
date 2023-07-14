@@ -12,7 +12,7 @@ const AllProducts = () => {
 
 
     return (
-        <div className='mx-20'>
+        <div className='md:mx-20 mx-10'>
             <div className="overflow-x-auto md:mx-20">
                 <h1 className='text-2xl mt-4 font-extrabold text-center text-white'>ALL PRODUCTS</h1>
                 <div className='text-center'>
@@ -23,7 +23,7 @@ const AllProducts = () => {
                         <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>PDF</button>
                         <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>SHOW/HIDE COLUM</button>
                     </div>
-                    <Link to='/dashBoard/addProduct'> <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>+ ADD NEW PRODUCT</button></Link>
+                    <Link to='/dashBoard/addProduct'> <button className=' hidden md:block border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>+ ADD NEW PRODUCT</button></Link>
                 </div>
                 <table className="table w-full my-6 border">
                     <thead>

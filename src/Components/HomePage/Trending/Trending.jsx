@@ -40,14 +40,14 @@ const Trending = () => {
         <div>
             <Marquee>
                 <div className='grid grid-cols-8 gap-14 py-10'>
-                    <img className='w-32 h-32' src={logo1} alt="logo" />
-                    <img className='w-32 h-32' src={logo2} alt="logo" />
-                    <img className='w-32 h-32' src={logo3} alt="logo" />
-                    <img className='w-32 h-32' src={logo7} alt="logo" />
-                    <img className='w-32 h-32' src={logo4} alt="logo" />
-                    <img className='w-32 h-32' src={logo5} alt="logo" />
-                    <img className='w-32 h-32' src={logo6} alt="logo" />
-                    <img className='w-32 h-32' src={logo8} alt="logo" />
+                    <img className='w-28 h-28' src={logo1} alt="logo" />
+                    <img className='w-28 h-28' src={logo2} alt="logo" />
+                    <img className='w-28 h-28' src={logo3} alt="logo" />
+                    <img className='w-28 h-28' src={logo7} alt="logo" />
+                    <img className='w-28 h-28' src={logo4} alt="logo" />
+                    <img className='w-28 h-28' src={logo5} alt="logo" />
+                    <img className='w-28 h-28' src={logo6} alt="logo" />
+                    <img className='w-28 h-28' src={logo8} alt="logo" />
                 </div>
             </Marquee>
             <div className='pt-10 px-14'>
@@ -62,7 +62,7 @@ const Trending = () => {
                     }
                 </div>
 
-                <div className='grid grid-cols-4 gap-4 pt-2'>
+                <div className='grid sm:grid-cols-1 md:grid-cols-4 gap-4 pt-2'>
                     {
                         products.slice(0, seeAll ? 10000000 : 4).map(product => <ProductCard
                             product={product} key={product.name} />)
