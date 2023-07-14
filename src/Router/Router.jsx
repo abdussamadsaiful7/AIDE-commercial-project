@@ -48,7 +48,8 @@ import AddProduct from "../Components/Admin/AddProduct";
         },
         {
           path: 'allProducts',
-          element:<AllProducts/>
+          element:<AllProducts/>,
+          loader: ()=>fetch('http://localhost:5050/products'),
         },
         {
           path: 'addProduct',
