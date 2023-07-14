@@ -7,8 +7,12 @@ import Home from "../Components/HomePage/Home/Home";
 import Footer from "../Components/HomePage/Footer/Footer";
 import SignUp from "../Components/SignUp/SignUp";
 import Navbar from "../Components/HomePage/Navbar/Navbar";
-import Admin from "../Components/Admin/Admin";
 import Login from "../Components/LogIn/Login";
+import AddEmployee from "../Components/Admin/AddEmployee";
+import AllEmployee from "../Components/Admin/AllEmployee";
+import AllProducts from "../Components/Admin/AllProducts";
+import Dashboard from "../Components/Dashdoard/Dashboard";
+import AddProduct from "../Components/Admin/AddProduct";
 
   const router = createBrowserRouter([
     {
@@ -27,9 +31,28 @@ import Login from "../Components/LogIn/Login";
             path: '/signUp',
             element: <SignUp/>
         },
+      ]
+    },
+    {
+      path: 'dashBoard',
+      element: <Dashboard/>,
+      children:[
         {
-            path: "/admin",
-            element: <Admin/>
+          path: "addEmployee",
+          element: <AddEmployee/>
+        },
+        {
+          path: 'allEmployee',
+          element: <AllEmployee/>,
+
+        },
+        {
+          path: 'allProducts',
+          element:<AllProducts/>
+        },
+        {
+          path: 'addProduct',
+          element:<AddProduct/>
         }
       ]
     },

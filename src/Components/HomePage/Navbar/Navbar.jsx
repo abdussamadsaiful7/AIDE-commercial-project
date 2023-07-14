@@ -35,7 +35,7 @@ const Navbar = () => {
                     <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Sign In</button></Link>
 
 
-                    <Link to='/admin'><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Admin</a></Link>
+                    <Link to='/dashBoard'><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Admin</a></Link>
                 </div>
             </div>
         </div>
