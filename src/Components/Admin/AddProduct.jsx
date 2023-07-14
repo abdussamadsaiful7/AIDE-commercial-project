@@ -16,7 +16,7 @@ const AddProduct = () => {
         const quantity = form.quantity.value;
         const weight = form.weight.value;
         const imageURL = form.imageURL.value;
-        const newProduct = { name, price, quantity, weight, imageURL };
+        const newProduct = { name, price:parseInt(price), quantity:parseInt(quantity), weight, imageURL };
 
         console.log(newProduct);
 

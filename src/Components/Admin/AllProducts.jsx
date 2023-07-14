@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../AuthProviders/AuthProviders';
 
 
 const AllProducts = () => {
@@ -7,8 +8,6 @@ const AllProducts = () => {
     const [products, setProducts] = useState(loadProducts);
     const [search, setSearch] = useState('');
     console.log(products);
-
-
 
 
 
@@ -52,7 +51,8 @@ const AllProducts = () => {
 
                                     </td>
                                     <td>{product.name}</td>
-                                    <td>{product.quantity} liter/kg</td>
+                                    <td>{product.weight} liter/kg</td>
+                                    <td>{product.quantity}</td>
                                     <td>${product.price}</td>
 
 

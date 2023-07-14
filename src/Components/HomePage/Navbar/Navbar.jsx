@@ -12,9 +12,9 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <Link><a className=" flex items-center mr-2"><FaShoppingCart />Cart</a></Link>
+                            <Link to="/order"><a className=" flex items-center mr-2"><FaShoppingCart />Cart</a></Link>
                             <Link to='/login'><a className=" flex items-center mr-2"><FaUserAlt />Sign In</a></Link>
-                            <Link><a className=" flex items-center mr-2"><FaUserAlt />Admin</a></Link>
+                            <Link to='/dashBoard'><a className=" flex items-center mr-2"><FaUserAlt />Admin</a></Link>
                         </ul>
                     </div>
                     <a href='/' className="normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
@@ -29,7 +29,7 @@ const Navbar = () => {
 
 
                 <div className="navbar-end space-x-6">
-                    <Link><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaShoppingCart /></span>Cart</a></Link>
+                    <Link to='/order'><a className=" flex items-center"> <span className='mr-1 text-blue-500'><FaShoppingCart /></span>Cart</a></Link>
 
 
                     <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt /></span>Sign In</button></Link>

@@ -13,6 +13,7 @@ import AllEmployee from "../Components/Admin/AllEmployee";
 import AllProducts from "../Components/Admin/AllProducts";
 import Dashboard from "../Components/Dashdoard/Dashboard";
 import AddProduct from "../Components/Admin/AddProduct";
+import Order from "../Components/Order/Order";
 
   const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ import AddProduct from "../Components/Admin/AddProduct";
             path: '/signUp',
             element: <SignUp/>
         },
+        {
+          path: '/order',
+          element: <Order/>
+        }
       ]
     },
     {
@@ -55,7 +60,8 @@ import AddProduct from "../Components/Admin/AddProduct";
         {
           path: 'addProduct',
           element:<AddProduct/>
-        }
+        },
+        
       ]
     },
     {
