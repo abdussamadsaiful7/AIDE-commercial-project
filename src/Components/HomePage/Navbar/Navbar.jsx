@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaAlignJustify, FaPowerOff, FaSearch, FaShoppingCart, FaUserAlt, } from "react-icons/fa";
+import { FaAlignJustify, FaPowerOff, FaSearch, FaShoppingCart, FaSignOutAlt, FaUserAlt, } from "react-icons/fa";
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 
 const Navbar = () => {
@@ -44,10 +44,10 @@ const Navbar = () => {
                     <a href='/' className=" hidden md:block normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
                 </div>
 
-                <div className=' hidden md:flex items-center relative w-3/4'>
+                <div className=' hidden md:flex items-center relative w-3/4 mb-1'>
                     <i className='absolute left-1 text-blue-500'><FaSearch /></i>
                     <input type="text" placeholder="Search essential, groceries and more..."
-                        className=" text-sm pl-6  input input-bordered border-blue-500 input-group-lg w-full" />
+                        className=" text-sm pl-6 py-1  input input-bordered border-blue-500 input-group-lg w-full" />
                     <i className='absolute right-1 text-blue-500'><FaAlignJustify /></i>
                 </div>
 
@@ -58,20 +58,21 @@ const Navbar = () => {
                         right-0 left-20 -top-2 rounded-[60%]">+{show?.length || 0}</span> Cart</a></Link>
 
 
+                    <Link to='/dashBoard'><a className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-lg' /></span>Admin</a></Link>
+
+
                     {
-                        user?
-                        <>
-                            <Link><button  onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaPowerOff className='text-2xl' /></span>
-                            Sign Out</button></Link>
-                        </>
-                        :
-                    <>
-                        <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-2xl' /></span>Sign In</button></Link>
-                    </>
+                        user ?
+                            <>
+                                <Link><button onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaSignOutAlt className='text-xl' /></span>
+                                    Sign Out</button></Link>
+                            </>
+                            :
+                            <>
+                                <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-xl' /></span>Sign In</button></Link>
+                            </>
                     }
 
-
-                    <Link to='/dashBoard'><a className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-2xl' /></span>Admin</a></Link>
                 </div>
             </div>
         </div>
