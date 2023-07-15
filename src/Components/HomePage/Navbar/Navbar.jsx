@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaAlignJustify, FaSearch, FaShoppingCart, FaSignOutAlt, FaUserAlt, } from "react-icons/fa";
+import { FaAlignJustify, FaHome, FaSearch, FaShoppingCart, FaSignOutAlt, FaUserAlt, } from "react-icons/fa";
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [show, setShow] = useState([]);
     // console.log("navbar", show.length)
-    
+
 
     useEffect(() => {
         fetch(`https://aide-task-server-weld.vercel.app/order?email=${user?.email}&${show?.price}`)
@@ -34,12 +34,24 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className=" z-50 menu menu-sm dropdown-content mt-3 p-2 space-y-2 shadow bg-base-100 rounded-box w-36">
 
-                            <Link to="/order"><a className=" flex items-center "><FaShoppingCart />
+                            <Link to="/order"><a className=" flex items-center "><FaShoppingCart className='mr-1 text-blue-500' />
                                 <span className='text-red-400'>+{show?.length || 0}</span>Cart</a></Link>
 
 
-                            <Link to='/login'><a className=" flex items-center mr-2"><FaUserAlt />Sign In</a></Link>
-                            <Link to='/dashBoard'><a className=" flex items-center mr-2"><FaUserAlt />Admin</a></Link>
+                            {/* <Link to='/login'><a className=" flex items-center mr-2"><FaUserAlt />Sign In</a></Link> */}
+                            {
+                                user ?
+                                    <>
+                                        <Link><button onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaSignOutAlt className='text-lg font-serif' /></span>
+                                            Sign Out</button></Link>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login'><button className="flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-xl font-serif' /></span>Sign In</button></Link>
+                                    </>
+                            }
+                            <Link to='/dashBoard'><a className=" flex items-center mr-2"><FaUserAlt className='mr-1 text-blue-500' />Admin</a></Link>
+                            <Link to='/'><a className=" flex items-center mr-2"><FaHome className='mr-1 text-blue-500' />Home</a></Link>
                         </ul>
                     </div>
                     <a href='/' className=" hidden md:block normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
@@ -65,12 +77,12 @@ const Navbar = () => {
                     {
                         user ?
                             <>
-                                <Link><button onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaSignOutAlt className='text-lg font-serif' /></span>
+                                <Link><button onClick={handleLogout} className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaSignOutAlt className='text-lg font-serif' /></span>
                                     Sign Out</button></Link>
                             </>
                             :
                             <>
-                                <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-xl font-serif' /></span>Sign In</button></Link>
+                                <Link to='/login'><button className=" hidden  md:flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-xl font-serif' /></span>Sign In</button></Link>
                             </>
                     }
 
