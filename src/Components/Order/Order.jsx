@@ -50,8 +50,9 @@ const Order = () => {
                 {
                     myOrder.map(order =>
 
-                        <tbody order={order} key={order._id} >
-                            <tr className='my-4' data-aos="flip-up">
+                        <tbody order={order} key={order._id} className='cursor-pointer 
+                        hover:scale-[0.95] duration-300 hover:bg-blue-500 hover:text-white' >
+                            <tr className='my-4'>
                                 <td>
 
                                     <div className="avatar">

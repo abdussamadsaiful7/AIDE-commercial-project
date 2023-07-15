@@ -3,6 +3,7 @@ import { AuthContext } from '../../AuthProviders/AuthProviders';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+
 const ProductCard = ({ product }) => {
     //console.log(product)
     const { _id, name, price, quantity, imageURL, weight } = product;
@@ -84,7 +85,8 @@ const ProductCard = ({ product }) => {
 
     return (
         <div>
-            <div className='shadow-lg p-2 rounded'>
+            <div className='shadow-md p-2 rounded cursor-pointer  hover:scale-[1.1] duration-300
+            hover:shadow-black'>
                 <img className='w-60 h-60' src={imageURL} alt="" />
                 <h1>Product Name: {name}</h1>
                 <p>Weight: {weight} liter/kg</p>
@@ -104,8 +106,6 @@ const ProductCard = ({ product }) => {
                 </div>
                 <button onClick={() => handleAddToCart(product)} className='hover:bg-blue-500 hover:text-white rounded border border-1 border-blue-500 text-blue-500 w-full'>
                     Add to Cart</button>
-                {/* )
-          //      } */}
             </div>
         </div>
     );
