@@ -18,7 +18,7 @@ const AddEmployee = () => {
 
         console.log(newEmployee);
 
-        fetch('http://localhost:5050/allEmployee', {
+        fetch('https://aide-task-server-weld.vercel.app/allEmployee', {
             method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(newEmployee)

@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaAlignJustify, FaPowerOff, FaSearch, FaShoppingCart, FaSignOutAlt, FaUserAlt, } from "react-icons/fa";
+import { FaAlignJustify, FaSearch, FaShoppingCart, FaSignOutAlt, FaUserAlt, } from "react-icons/fa";
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [show, setShow] = useState([]);
     // console.log("navbar", show.length)
+    
 
     useEffect(() => {
-        fetch(`http://localhost:5050/order?email=${user?.email}&${show?.price}`)
+        fetch(`https://aide-task-server-weld.vercel.app/order?email=${user?.email}&${show?.price}`)
             .then(res => res.json())
             .then(data => setShow(data))
     }, [show])
@@ -55,21 +56,21 @@ const Navbar = () => {
                 <div className=" relative navbar-end space-x-6">
                     <Link to='/order'><a className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaShoppingCart className='text-2xl' /></span> <span className="badge 
                      badge-xs bg-blue-500 absolute 
-                        right-0 left-20 -top-2 rounded-[60%]">+{show?.length || 0}</span> Cart</a></Link>
+                        right-0 left-20 -top-2 rounded-[60%] text-white">+{show?.length || 0}</span> Cart</a></Link>
 
 
-                    <Link to='/dashBoard'><a className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-lg' /></span>Admin</a></Link>
+                    <Link to='/dashBoard'><a className=" hidden md:flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-lg font-serif' /></span>Admin</a></Link>
 
 
                     {
                         user ?
                             <>
-                                <Link><button onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaSignOutAlt className='text-xl' /></span>
+                                <Link><button onClick={handleLogout} className=" flex items-center"> <span className='mr-1 text-blue-500'><FaSignOutAlt className='text-lg font-serif' /></span>
                                     Sign Out</button></Link>
                             </>
                             :
                             <>
-                                <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-xl' /></span>Sign In</button></Link>
+                                <Link to='/login'><button className=" flex items-center"> <span className='mr-1 text-blue-500'><FaUserAlt className='text-xl font-serif' /></span>Sign In</button></Link>
                             </>
                     }
 

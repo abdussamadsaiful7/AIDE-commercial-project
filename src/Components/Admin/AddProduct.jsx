@@ -20,7 +20,7 @@ const AddProduct = () => {
 
         console.log(newProduct);
 
-        fetch('http://localhost:5050/products', {
+        fetch('https://aide-task-server-weld.vercel.app/products', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

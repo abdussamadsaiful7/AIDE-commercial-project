@@ -28,7 +28,7 @@ const Trending = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5050/products')
+        fetch('https://aide-task-server-weld.vercel.app/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

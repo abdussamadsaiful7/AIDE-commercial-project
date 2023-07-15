@@ -50,13 +50,13 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
         {
           path: 'allEmployee',
           element: <AllEmployee/>,
-          loader: ()=>fetch('http://localhost:5050/allEmployee'),
+          loader: ()=>fetch('https://aide-task-server-weld.vercel.app/allEmployee'),
 
         },
         {
           path: 'allProducts',
           element:<AllProducts/>,
-          loader: ()=>fetch('http://localhost:5050/products'),
+          loader: ()=>fetch('https://aide-task-server-weld.vercel.app/products'),
         },
         {
           path: 'addProduct',

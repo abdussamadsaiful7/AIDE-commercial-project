@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
             };
             // if (user && user.email) {
             //     const cartItem = { itemId: _id, name, imageURL, price, quantity, weight, email: user.email }
-            fetch('http://localhost:5050/order', {
+            fetch('https://aide-task-server-weld.vercel.app/order', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

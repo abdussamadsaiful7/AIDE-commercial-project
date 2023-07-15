@@ -70,9 +70,7 @@ const AllProducts = () => {
                                 </thead>
                                 {
                                     products.filter((item) => {
-                                        return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search)
-                                    }).map(product =>
-
+                                        return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search)}).map(product =>
                                         <tbody product={product} key={product._id} className='cursor-pointer 
                                         hover:scale-[0.95] duration-300 hover:bg-blue-500 hover:text-white' >
                                             <tr className='my-4'>

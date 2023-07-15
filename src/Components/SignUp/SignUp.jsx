@@ -55,10 +55,10 @@ const SignUp = () => {
             <h1 className='text-center text-2xl font-semibold pt-8'>Registration please!</h1>
             <div className="hero pt-1">
                 <div className="hero-content">
-                    <div className='mr-6'>
+                    <div className='mr-6 hidden md:block'>
                         <Lottie animationData={lottie} loop={true} />
                     </div>
-                    <div className="card  w-3/4  shadow-md bg-base-100">
+                    <div className="card  md:w-3/4  shadow-md bg-base-100">
                         <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">

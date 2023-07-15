@@ -7,7 +7,7 @@ const Order = () => {
     const [myOrder, setMyOrder] = useState([]);
     const { _id, name, price, quantity, imageURL, weight } = myOrder;
 
-    const url = `http://localhost:5050/order?email=${user?.email}&${myOrder?.price}`
+    const url = `https://aide-task-server-weld.vercel.app/order?email=${user?.email}&${myOrder?.price}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -17,7 +17,7 @@ const Order = () => {
     const handleDelete = id => {
         const process = confirm("Are you sure?")
         if (process) {
-            fetch(`http://localhost:5050/order/${id}`, {
+            fetch(`https://aide-task-server-weld.vercel.app/order/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

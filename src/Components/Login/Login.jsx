@@ -56,11 +56,11 @@ const Login = () => {
 
     return (
         <div>
-            <h1 className="text-3xl text-center font-bold pt-8">Please Login now!</h1>
+            <h1 className=" text-3xl text-center font-bold pt-8">Please Login now!</h1>
             <div className="hero pt-2">
                 <div className="hero-content">
 
-                    <div className='mr-10'>
+                    <div className='mr-10 hidden md:block'>
                         <Lottie className='w-64 h-64' animationData={lottie} loop={true} />
                     </div>
 
