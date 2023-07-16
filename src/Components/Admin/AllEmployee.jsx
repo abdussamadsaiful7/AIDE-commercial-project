@@ -45,7 +45,7 @@ const AllEmployee = () => {
 
 
                 </div>
-                <Link to='/dashBoard/addEmployee'> <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>+ ADD NEW PRODUCT</button></Link>
+                <Link to='/dashBoard/addEmployee'> <button className='border border-1 border-blue-500 p-1 rounded text-slate-500 hover:bg-blue-500 hover:text-white'>+ ADD NEW EMPLOYEE</button></Link>
             </div>
 
             <div className='print'>
