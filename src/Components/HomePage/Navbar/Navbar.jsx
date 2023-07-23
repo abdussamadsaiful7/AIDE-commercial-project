@@ -54,7 +54,7 @@ const Navbar = () => {
                             <Link to='/'><a className=" flex items-center mr-2"><FaHome className='mr-1 text-blue-500' />Home</a></Link>
                         </ul>
                     </div>
-                    <a href='/' className=" hidden md:block normal-case text-xl text-blue-500">Abdus Samad Saiful</a>
+                    <a href='/' className=" hidden md:block normal-case text-xl text-blue-500">Mina Super Shop</a>
                 </div>
 
                 <div className=' hidden md:flex items-center relative w-3/4 mb-1'>
